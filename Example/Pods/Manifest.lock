@@ -4,6 +4,7 @@ PODS:
     - KVOController (~> 1.0.3)
 
 DEPENDENCIES:
+  - KVOController (~> 1.0.3)
   - MUKScrollTrigger (from `../`)
 
 EXTERNAL SOURCES:

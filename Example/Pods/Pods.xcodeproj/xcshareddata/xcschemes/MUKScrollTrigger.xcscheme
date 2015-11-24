@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DDE37E468C56173DB67123B3'
+               BlueprintIdentifier = '0B4699241B44AB145C53360E'
                BlueprintName = 'MUKScrollTrigger'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMUKScrollTrigger.a'>
