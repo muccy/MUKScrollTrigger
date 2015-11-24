@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../MUKScrollTrigger.podspec">
+   </FileRef>
+   <Group
+      location = "group:../Classes"
+      name = "Classes">
+      <FileRef
+         location = "group:MUKScrollTrigger.h">
+      </FileRef>
+      <FileRef
+         location = "group:MUKScrollTrigger.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Example.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
