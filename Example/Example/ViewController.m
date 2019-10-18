@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import <MUKScrollTrigger/MUKScrollTrigger.h>
-#import <KVOController/FBKVOController.h>
+
+static void *const kKVOContext = (void *)&kKVOContext;
 
 @interface ViewController ()
 @property (nonatomic) MUKScrollTrigger *scrollTrigger;
@@ -25,22 +26,21 @@
         return trigger.scrollableSize.height - trigger.scrolledSize.trailing.height < 44.0f;
     }];
     
-    [self.KVOController observe:self.scrollTrigger keyPath:NSStringFromSelector(@selector(scrolledSize)) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(ViewController *observer, id object, NSDictionary *change)
-    {
-        [observer updateStatusLabel];
-    }];
-    
-    [self.KVOController observe:self.scrollTrigger keyPath:NSStringFromSelector(@selector(scrolledFraction)) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(ViewController *observer, id object, NSDictionary *change)
-    {
-        [observer updateStatusLabel];
-    }];
-    
-    [self.KVOController observe:self.scrollTrigger keyPath:@"active" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(ViewController *observer, id object, NSDictionary *change)
-    {
-        [observer updateStatusLabel];
-    }];
-    
     [self.scrollTrigger addTarget:self action:@selector(triggerActivated:)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.scrollTrigger addObserver:self forKeyPath:NSStringFromSelector(@selector(scrolledSize)) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:kKVOContext];
+    [self.scrollTrigger addObserver:self forKeyPath:NSStringFromSelector(@selector(scrolledFraction)) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:kKVOContext];
+    [self.scrollTrigger addObserver:self forKeyPath:@"active" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:kKVOContext];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.scrollTrigger removeObserver:self forKeyPath:NSStringFromSelector(@selector(scrolledSize)) context:kKVOContext];
+    [self.scrollTrigger removeObserver:self forKeyPath:NSStringFromSelector(@selector(scrolledFraction)) context:kKVOContext];
+    [self.scrollTrigger removeObserver:self forKeyPath:@"active" context:kKVOContext];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -59,6 +59,20 @@
 
 - (void)triggerActivated:(MUKScrollTrigger *)trigger {
     self.statusLabel.backgroundColor = [UIColor colorWithRed:(float)arc4random_uniform(255)/255.0 green:(float)arc4random_uniform(255)/255.0 blue:(float)arc4random_uniform(255)/255.0 alpha:0.5f];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context != &kKVOContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+
+    if (object == self.scrollTrigger) {
+        [self updateStatusLabel];
+    }
 }
 
 @end

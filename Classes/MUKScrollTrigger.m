@@ -13,15 +13,22 @@
 #define DEBUG_LOG_SCROLLED_FRACTION 0
 #define DEBUG_LOG_ACTIVE            0
 
+static void *const kKVOContext = (void *)&kKVOContext;
+
 @interface MUKScrollTrigger ()
 @property (nonatomic, readwrite) MUKScrollAmount scrolledSize, scrolledFraction;
 @property (nonatomic, readwrite, getter=isActive) BOOL active;
 
 @property (nonatomic, readonly, copy, nonnull) BOOL (^triggerTest)(MUKScrollTrigger * _Nonnull trigger);
 @property (nonatomic, readwrite, copy, nullable) NSSet<MUKScrollTriggerTarget *> *targets;
+@property (nonatomic) BOOL isObservingScrollView;
 @end
 
 @implementation MUKScrollTrigger
+
+- (void)dealloc {
+    [self unobserveScrollView];
+}
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView test:(BOOL (^ _Nonnull)(MUKScrollTrigger * _Nonnull))triggerTest
 {
@@ -31,8 +38,7 @@
         _triggerTest = [triggerTest copy];
         
         [self updateScrolledSize];
-        [self observeScrollViewBounds];
-        [self observeScrollViewContentSize];
+        [self observeScrollView];
     }
     
     return self;
@@ -88,20 +94,41 @@
     return [self initWithScrollView:[UIScrollView new] test:^(MUKScrollTrigger *trigger) { return NO; }];
 }
 
-#pragma mark - Private — Observations
+#pragma mark - KVO
 
-- (void)observeScrollViewBounds {
-    [self.KVOController observe:self.scrollView keyPath:NSStringFromSelector(@selector(bounds)) options:NSKeyValueObservingOptionNew block:^(MUKScrollTrigger *observer, UIScrollView *object, NSDictionary *change)
-    {
-        [observer updateScrolledSize];
-    }];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context != &kKVOContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+
+    if (object == self.scrollView) {
+        if ([keyPath isEqualToString:NSStringFromSelector(@selector(bounds))]) {
+            [self updateScrolledSize];
+        }
+        else if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
+            [self updateScrolledFractionWithScrolledSize:self.scrolledSize];
+        }
+    }
 }
 
-- (void)observeScrollViewContentSize {
-    [self.KVOController observe:self.scrollView keyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew block:^(MUKScrollTrigger *observer, UIScrollView *object, NSDictionary *change)
-    {
-        [observer updateScrolledFractionWithScrolledSize:observer.scrolledSize];
-    }];
+#pragma mark - Private — Observations
+
+- (void)observeScrollView {
+    if (!self.isObservingScrollView) {
+        [self.scrollView addObserver:self forKeyPath:NSStringFromSelector(@selector(bounds)) options:NSKeyValueObservingOptionNew context:kKVOContext];
+        [self.scrollView addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew context:kKVOContext];
+        self.isObservingScrollView = YES;
+    }
+}
+
+- (void)unobserveScrollView {
+    if (self.isObservingScrollView) {
+        [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(bounds)) context:kKVOContext];
+        [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) context:kKVOContext];
+        self.isObservingScrollView = NO;
+    }
 }
 
 #pragma mark - Private — Updates
