@@ -17,10 +17,5 @@
   },
   "requires_arc": true,
   "source_files": "Classes/*.{h,m}",
-  "compiler_flags": "-Wdocumentation",
-  "dependencies": {
-    "KVOController": [
-      "~> 1.0.3"
-    ]
-  }
+  "compiler_flags": "-Wdocumentation"
 }

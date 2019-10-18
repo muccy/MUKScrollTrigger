@@ -1,2 +1,5 @@
-pod "MUKScrollTrigger", :path => "../"
-pod 'KVOController', '~> 1.0.3'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Example' do 
+    pod "MUKScrollTrigger", :path => "../"
+end
