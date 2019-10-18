@@ -26,9 +26,9 @@ typedef struct {
 } MUKScrollAmount;
 
 /// @returns New scroll amount value
-extern inline MUKScrollAmount MUKScrollAmountMake(CGFloat leadingWidth, CGFloat leadingHeight, CGFloat trailingWidth, CGFloat trailingHeight);
+extern MUKScrollAmount MUKScrollAmountMake(CGFloat leadingWidth, CGFloat leadingHeight, CGFloat trailingWidth, CGFloat trailingHeight);
 /// @returns String representation of scroll amount
-extern inline NSString * _Nonnull NSStringFromMUKScrollAmount(MUKScrollAmount amount);
+extern NSString * _Nonnull NSStringFromMUKScrollAmount(MUKScrollAmount amount);
 
 /**
  */

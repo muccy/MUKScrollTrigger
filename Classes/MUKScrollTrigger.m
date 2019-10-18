@@ -7,76 +7,13 @@
 //
 
 #import "MUKScrollTrigger.h"
-#import <KVOController/FBKVOController.h>
+#import "MUKScrollTriggerTarget.h"
 
 #define DEBUG_LOG_SCROLLED_SIZE     0
 #define DEBUG_LOG_SCROLLED_FRACTION 0
 #define DEBUG_LOG_ACTIVE            0
 
-NS_ASSUME_NONNULL_BEGIN
-@interface MUKScrollTriggerTarget : NSObject
-@property (nonatomic, weak, readonly) id object;
-@property (nonatomic, readonly) SEL action;
-
-- (instancetype)initWithObject:(id)object action:(SEL)action NS_DESIGNATED_INITIALIZER;
-- (void)performWithSender:(MUKScrollTrigger *)sender;
-
-- (BOOL)isEqualToScrollTriggerTarget:(MUKScrollTriggerTarget *)target;
-@end
-NS_ASSUME_NONNULL_END
-
-@implementation MUKScrollTriggerTarget
-
-- (instancetype)initWithObject:(id)object action:(SEL)action {
-    self = [super init];
-    if (self) {
-        _object = object;
-        _action = action;
-    }
-    
-    return self;
-}
-
-- (instancetype)init {
-    NSAssert(NO, @"Use designated initializer");
-    return [self initWithObject:[NSObject new] action:@selector(description)];
-}
-
-- (void)performWithSender:(MUKScrollTrigger *)sender {
-    if ([self.object respondsToSelector:self.action]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.object performSelector:self.action withObject:sender];
-#pragma clang diagnostic pop
-    }
-}
-
-- (BOOL)isEqualToScrollTriggerTarget:(MUKScrollTriggerTarget *)target {
-    BOOL const sameTargetObject = (!self.object && !target.object) || [self.object isEqual:target.object];
-    BOOL const sameAction = self.action == target.action;
-    
-    return sameTargetObject && sameAction;
-}
-
-- (BOOL)isEqual:(id)object {
-    if (self == object) {
-        return YES;
-    }
-    
-    if ([object isKindOfClass:[self class]]) {
-        return [self isEqualToScrollTriggerTarget:object];
-    }
-    
-    return NO;
-}
-
-- (NSUInteger)hash {
-    return 3853 ^ [self.object hash];
-}
-
-@end
-
-#pragma mark -
+static void *const kKVOContext = (void *)&kKVOContext;
 
 @interface MUKScrollTrigger ()
 @property (nonatomic, readwrite) MUKScrollAmount scrolledSize, scrolledFraction;
@@ -84,9 +21,14 @@ NS_ASSUME_NONNULL_END
 
 @property (nonatomic, readonly, copy, nonnull) BOOL (^triggerTest)(MUKScrollTrigger * _Nonnull trigger);
 @property (nonatomic, readwrite, copy, nullable) NSSet<MUKScrollTriggerTarget *> *targets;
+@property (nonatomic) BOOL isObservingScrollView;
 @end
 
 @implementation MUKScrollTrigger
+
+- (void)dealloc {
+    [self unobserveScrollView];
+}
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView test:(BOOL (^ _Nonnull)(MUKScrollTrigger * _Nonnull))triggerTest
 {
@@ -96,8 +38,7 @@ NS_ASSUME_NONNULL_END
         _triggerTest = [triggerTest copy];
         
         [self updateScrolledSize];
-        [self observeScrollViewBounds];
-        [self observeScrollViewContentSize];
+        [self observeScrollView];
     }
     
     return self;
@@ -153,20 +94,41 @@ NS_ASSUME_NONNULL_END
     return [self initWithScrollView:[UIScrollView new] test:^(MUKScrollTrigger *trigger) { return NO; }];
 }
 
-#pragma mark - Private — Observations
+#pragma mark - KVO
 
-- (void)observeScrollViewBounds {
-    [self.KVOController observe:self.scrollView keyPath:NSStringFromSelector(@selector(bounds)) options:NSKeyValueObservingOptionNew block:^(MUKScrollTrigger *observer, UIScrollView *object, NSDictionary *change)
-    {
-        [observer updateScrolledSize];
-    }];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context != &kKVOContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+
+    if (object == self.scrollView) {
+        if ([keyPath isEqualToString:NSStringFromSelector(@selector(bounds))]) {
+            [self updateScrolledSize];
+        }
+        else if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
+            [self updateScrolledFractionWithScrolledSize:self.scrolledSize];
+        }
+    }
 }
 
-- (void)observeScrollViewContentSize {
-    [self.KVOController observe:self.scrollView keyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew block:^(MUKScrollTrigger *observer, UIScrollView *object, NSDictionary *change)
-    {
-        [observer updateScrolledFractionWithScrolledSize:observer.scrolledSize];
-    }];
+#pragma mark - Private — Observations
+
+- (void)observeScrollView {
+    if (!self.isObservingScrollView) {
+        [self.scrollView addObserver:self forKeyPath:NSStringFromSelector(@selector(bounds)) options:NSKeyValueObservingOptionNew context:kKVOContext];
+        [self.scrollView addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew context:kKVOContext];
+        self.isObservingScrollView = YES;
+    }
+}
+
+- (void)unobserveScrollView {
+    if (self.isObservingScrollView) {
+        [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(bounds)) context:kKVOContext];
+        [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) context:kKVOContext];
+        self.isObservingScrollView = NO;
+    }
 }
 
 #pragma mark - Private — Updates

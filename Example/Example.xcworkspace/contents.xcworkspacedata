@@ -7,6 +7,16 @@
    <Group
       location = "group:../Classes"
       name = "Classes">
+      <Group
+         location = "group:Target"
+         name = "Target">
+         <FileRef
+            location = "group:MUKScrollTriggerTarget.h">
+         </FileRef>
+         <FileRef
+            location = "group:MUKScrollTriggerTarget.m">
+         </FileRef>
+      </Group>
       <FileRef
          location = "group:MUKScrollTrigger.h">
       </FileRef>

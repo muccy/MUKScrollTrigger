@@ -1,18 +1,16 @@
 PODS:
-  - KVOController (1.0.3)
-  - MUKScrollTrigger (1.0.0):
-    - KVOController (~> 1.0.3)
+  - MUKScrollTrigger (1.0.0)
 
 DEPENDENCIES:
-  - KVOController (~> 1.0.3)
   - MUKScrollTrigger (from `../`)
 
 EXTERNAL SOURCES:
   MUKScrollTrigger:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  MUKScrollTrigger: 3d684ec8286d43655e9558d17e25d966cb0761db
+  MUKScrollTrigger: eb7ced2cc24d97e3c2a7bfbbf79337dfe3027500
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7e52ab43e0b3cc29902f21db949d331caf524389
+
+COCOAPODS: 1.8.4
