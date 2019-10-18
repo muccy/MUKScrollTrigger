@@ -15,8 +15,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Classes/*.{h,m}'
+  s.source_files = 'Classes/**/*.{h,m}'
   s.compiler_flags  = '-Wdocumentation'
-  
-  s.dependency  'KVOController', '~> 1.0.3'
 end

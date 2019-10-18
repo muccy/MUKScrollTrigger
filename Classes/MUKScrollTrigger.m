@@ -7,76 +7,11 @@
 //
 
 #import "MUKScrollTrigger.h"
-#import <KVOController/FBKVOController.h>
+#import "MUKScrollTriggerTarget.h"
 
 #define DEBUG_LOG_SCROLLED_SIZE     0
 #define DEBUG_LOG_SCROLLED_FRACTION 0
 #define DEBUG_LOG_ACTIVE            0
-
-NS_ASSUME_NONNULL_BEGIN
-@interface MUKScrollTriggerTarget : NSObject
-@property (nonatomic, weak, readonly) id object;
-@property (nonatomic, readonly) SEL action;
-
-- (instancetype)initWithObject:(id)object action:(SEL)action NS_DESIGNATED_INITIALIZER;
-- (void)performWithSender:(MUKScrollTrigger *)sender;
-
-- (BOOL)isEqualToScrollTriggerTarget:(MUKScrollTriggerTarget *)target;
-@end
-NS_ASSUME_NONNULL_END
-
-@implementation MUKScrollTriggerTarget
-
-- (instancetype)initWithObject:(id)object action:(SEL)action {
-    self = [super init];
-    if (self) {
-        _object = object;
-        _action = action;
-    }
-    
-    return self;
-}
-
-- (instancetype)init {
-    NSAssert(NO, @"Use designated initializer");
-    return [self initWithObject:[NSObject new] action:@selector(description)];
-}
-
-- (void)performWithSender:(MUKScrollTrigger *)sender {
-    if ([self.object respondsToSelector:self.action]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.object performSelector:self.action withObject:sender];
-#pragma clang diagnostic pop
-    }
-}
-
-- (BOOL)isEqualToScrollTriggerTarget:(MUKScrollTriggerTarget *)target {
-    BOOL const sameTargetObject = (!self.object && !target.object) || [self.object isEqual:target.object];
-    BOOL const sameAction = self.action == target.action;
-    
-    return sameTargetObject && sameAction;
-}
-
-- (BOOL)isEqual:(id)object {
-    if (self == object) {
-        return YES;
-    }
-    
-    if ([object isKindOfClass:[self class]]) {
-        return [self isEqualToScrollTriggerTarget:object];
-    }
-    
-    return NO;
-}
-
-- (NSUInteger)hash {
-    return 3853 ^ [self.object hash];
-}
-
-@end
-
-#pragma mark -
 
 @interface MUKScrollTrigger ()
 @property (nonatomic, readwrite) MUKScrollAmount scrolledSize, scrolledFraction;

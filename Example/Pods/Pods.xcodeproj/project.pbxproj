@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		008D9D5FCB6EF1F256497A991B9FD068 /* MUKScrollTrigger.h in Headers */ = {isa = PBXBuildFile; fileRef = A8789E6B47CAA184F56808D818522783 /* MUKScrollTrigger.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		51013BA6476EE6AE3118E1C572194397 /* MUKScrollTrigger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B68EF7EADF02E8913DA27790C0C7DB /* MUKScrollTrigger-dummy.m */; };
-		AA5B42262E7B5C6EBC92E9C1CBB3F941 /* MUKScrollTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B82F0FD8C543F1F41426FED826C26C /* MUKScrollTrigger.m */; settings = {COMPILER_FLAGS = "-Wdocumentation"; }; };
+		2E920A9CAA6A85385E828EE9F71BC6ED /* MUKScrollTrigger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CF4F63464686603ED57C021B0406FF /* MUKScrollTrigger-dummy.m */; };
+		5B39C8A8F422757E67B3DE01AC717E0C /* MUKScrollTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 56787744BDA78C0B0011ACFC335B3B65 /* MUKScrollTrigger.m */; settings = {COMPILER_FLAGS = "-Wdocumentation"; }; };
+		6448677A17909A640E22716CA98E3917 /* MUKScrollTrigger.h in Headers */ = {isa = PBXBuildFile; fileRef = D4CF1FED20C3198462DB8291789A3BA3 /* MUKScrollTrigger.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9D4BF124F6B67B2333A94284D53DBE72 /* MUKScrollTriggerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 9880230BBA6F2CB27D49120CDA69776E /* MUKScrollTriggerTarget.m */; settings = {COMPILER_FLAGS = "-Wdocumentation"; }; };
+		B794936CE1702AA17BA2A3529392C930 /* MUKScrollTriggerTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = F23AADCA967E273C0B366CD6043BADDA /* MUKScrollTriggerTarget.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E1B80EABD25CEEA35D1984DF01712FBC /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BFEF1DDF3D2D328528F7A565F5177D /* Pods-Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -24,22 +26,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		107FD54B6B7852EB88F87541138E7BE5 /* MUKScrollTrigger.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MUKScrollTrigger.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0B0F651B50E7EE328DC032F18D1E779E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		1F667CC0E19EAF34E5A4119E2121F585 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Example.a"; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A80E969FB1CAB6CC1282C1224DDD48B /* MUKScrollTrigger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MUKScrollTrigger-prefix.pch"; sourceTree = "<group>"; };
-		7B7CBB8F8C3F5B194F44A1D5828661F9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		451048AC74C3F8868B403BD116208C83 /* MUKScrollTrigger.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MUKScrollTrigger.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4D3F991664F86F280D090DF754650331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		56787744BDA78C0B0011ACFC335B3B65 /* MUKScrollTrigger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MUKScrollTrigger.m; path = Classes/MUKScrollTrigger.m; sourceTree = "<group>"; };
 		873CDB2CE2AB3D55E7F7846B54D0067E /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8BF88BE95A7577678BDB817209E8B5DB /* MUKScrollTrigger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MUKScrollTrigger.xcconfig; sourceTree = "<group>"; };
+		9880230BBA6F2CB27D49120CDA69776E /* MUKScrollTriggerTarget.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MUKScrollTriggerTarget.m; sourceTree = "<group>"; };
 		995512BD8A1204FF064C89218D3D9059 /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		9A06B2CBC7F57E9BE08460BE730B397B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A8789E6B47CAA184F56808D818522783 /* MUKScrollTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MUKScrollTrigger.h; path = Classes/MUKScrollTrigger.h; sourceTree = "<group>"; };
 		AD1ED945ED6BCA1A6D236EF43E750CF5 /* libMUKScrollTrigger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMUKScrollTrigger.a; path = libMUKScrollTrigger.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB5CE60F2648C5816E0D295E71A57FF /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D16C73189EAD5F41B119B32F87019FB6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		D3B68EF7EADF02E8913DA27790C0C7DB /* MUKScrollTrigger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MUKScrollTrigger-dummy.m"; sourceTree = "<group>"; };
+		D4CF1FED20C3198462DB8291789A3BA3 /* MUKScrollTrigger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MUKScrollTrigger.h; path = Classes/MUKScrollTrigger.h; sourceTree = "<group>"; };
 		D5BFEF1DDF3D2D328528F7A565F5177D /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		D6B82F0FD8C543F1F41426FED826C26C /* MUKScrollTrigger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MUKScrollTrigger.m; path = Classes/MUKScrollTrigger.m; sourceTree = "<group>"; };
-		F6C408EAEB6FCAE1E3F8FDE710F3DF8A /* MUKScrollTrigger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MUKScrollTrigger.xcconfig; sourceTree = "<group>"; };
+		F23AADCA967E273C0B366CD6043BADDA /* MUKScrollTriggerTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MUKScrollTriggerTarget.h; sourceTree = "<group>"; };
+		F4CF4F63464686603ED57C021B0406FF /* MUKScrollTrigger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MUKScrollTrigger-dummy.m"; sourceTree = "<group>"; };
+		F546A115CAEEBCAA2DDE390CA667A843 /* MUKScrollTrigger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MUKScrollTrigger-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC46F4258EA02F93E7B36D7C30C96E48 /* Frameworks */ = {
+		883123B38919BC30FE088B639E308E52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,25 +64,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BD83477292F80C1EE15DD0318C8188B /* Support Files */ = {
+		074C7CB523787C56148DE3360F40D261 /* MUKScrollTrigger */ = {
 			isa = PBXGroup;
 			children = (
-				F6C408EAEB6FCAE1E3F8FDE710F3DF8A /* MUKScrollTrigger.xcconfig */,
-				D3B68EF7EADF02E8913DA27790C0C7DB /* MUKScrollTrigger-dummy.m */,
-				4A80E969FB1CAB6CC1282C1224DDD48B /* MUKScrollTrigger-prefix.pch */,
+				D4CF1FED20C3198462DB8291789A3BA3 /* MUKScrollTrigger.h */,
+				56787744BDA78C0B0011ACFC335B3B65 /* MUKScrollTrigger.m */,
+				CEDD0B7A2E2E7E2F3219D5F8F4735A9D /* Pod */,
+				5939B392D33C76073ED2C3ECC31E0F8E /* Support Files */,
+				D3D3C2AB4C3908596F0175449D213501 /* Target */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MUKScrollTrigger";
-			sourceTree = "<group>";
-		};
-		37983BEDFAB5BD3C06C96254178858AB /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				D16C73189EAD5F41B119B32F87019FB6 /* LICENSE */,
-				107FD54B6B7852EB88F87541138E7BE5 /* MUKScrollTrigger.podspec */,
-				7B7CBB8F8C3F5B194F44A1D5828661F9 /* README.md */,
-			);
-			name = Pod;
+			name = MUKScrollTrigger;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		38F5A2ADE0E80D945003286A35324F82 /* Products */ = {
@@ -88,6 +84,17 @@
 				1F667CC0E19EAF34E5A4119E2121F585 /* libPods-Example.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5939B392D33C76073ED2C3ECC31E0F8E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BF88BE95A7577678BDB817209E8B5DB /* MUKScrollTrigger.xcconfig */,
+				F4CF4F63464686603ED57C021B0406FF /* MUKScrollTrigger-dummy.m */,
+				F546A115CAEEBCAA2DDE390CA667A843 /* MUKScrollTrigger-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MUKScrollTrigger";
 			sourceTree = "<group>";
 		};
 		5FEFBFFE4CBFCEE496A3A740F57D04D5 /* Pods-Example */ = {
@@ -103,27 +110,43 @@
 			path = "Target Support Files/Pods-Example";
 			sourceTree = "<group>";
 		};
-		6BB9567352ACF96B7E4B4DF927146D01 /* MUKScrollTrigger */ = {
+		84B78437C7FB12B53FF6D1DE19BFF8E0 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A8789E6B47CAA184F56808D818522783 /* MUKScrollTrigger.h */,
-				D6B82F0FD8C543F1F41426FED826C26C /* MUKScrollTrigger.m */,
-				37983BEDFAB5BD3C06C96254178858AB /* Pod */,
-				2BD83477292F80C1EE15DD0318C8188B /* Support Files */,
+				074C7CB523787C56148DE3360F40D261 /* MUKScrollTrigger */,
 			);
-			name = MUKScrollTrigger;
-			path = ../..;
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CEDD0B7A2E2E7E2F3219D5F8F4735A9D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4D3F991664F86F280D090DF754650331 /* LICENSE */,
+				451048AC74C3F8868B403BD116208C83 /* MUKScrollTrigger.podspec */,
+				0B0F651B50E7EE328DC032F18D1E779E /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				F29E6179595D506E4DA7E2CB00ACA2DD /* Development Pods */,
+				84B78437C7FB12B53FF6D1DE19BFF8E0 /* Development Pods */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
 				38F5A2ADE0E80D945003286A35324F82 /* Products */,
 				D5B8D0B62F1C86934FF4C6E7C9986E7F /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D3D3C2AB4C3908596F0175449D213501 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				F23AADCA967E273C0B366CD6043BADDA /* MUKScrollTriggerTarget.h */,
+				9880230BBA6F2CB27D49120CDA69776E /* MUKScrollTriggerTarget.m */,
+			);
+			name = Target;
+			path = Classes/Target;
 			sourceTree = "<group>";
 		};
 		D5B8D0B62F1C86934FF4C6E7C9986E7F /* Targets Support Files */ = {
@@ -141,29 +164,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F29E6179595D506E4DA7E2CB00ACA2DD /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6BB9567352ACF96B7E4B4DF927146D01 /* MUKScrollTrigger */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		CE95610B972D5E1E5B653E3AD60F7165 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6448677A17909A640E22716CA98E3917 /* MUKScrollTrigger.h in Headers */,
+				B794936CE1702AA17BA2A3529392C930 /* MUKScrollTriggerTarget.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0D1425716339ADF519915A07E9CC994 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5F18A5843E11266534A93D648D8D502 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				008D9D5FCB6EF1F256497A991B9FD068 /* MUKScrollTrigger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,11 +206,11 @@
 		};
 		426754F3A061356C2F4081A7690DB8C3 /* MUKScrollTrigger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4283F6565816FFECF97F51823ADA98A7 /* Build configuration list for PBXNativeTarget "MUKScrollTrigger" */;
+			buildConfigurationList = D1E640A5DD34CF6C9C248E2F12EEC7C2 /* Build configuration list for PBXNativeTarget "MUKScrollTrigger" */;
 			buildPhases = (
-				D5F18A5843E11266534A93D648D8D502 /* Headers */,
-				D6B0D60CD6770DE25A8BB8730972C681 /* Sources */,
-				EC46F4258EA02F93E7B36D7C30C96E48 /* Frameworks */,
+				CE95610B972D5E1E5B653E3AD60F7165 /* Headers */,
+				CC74A61CDD847523EBC0EE50FF6BCC58 /* Sources */,
+				883123B38919BC30FE088B639E308E52 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,20 +249,21 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CC74A61CDD847523EBC0EE50FF6BCC58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E920A9CAA6A85385E828EE9F71BC6ED /* MUKScrollTrigger-dummy.m in Sources */,
+				5B39C8A8F422757E67B3DE01AC717E0C /* MUKScrollTrigger.m in Sources */,
+				9D4BF124F6B67B2333A94284D53DBE72 /* MUKScrollTriggerTarget.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D209D2EEA5B7FFB29DB9E8A5EED94555 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E1B80EABD25CEEA35D1984DF01712FBC /* Pods-Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D6B0D60CD6770DE25A8BB8730972C681 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				51013BA6476EE6AE3118E1C572194397 /* MUKScrollTrigger-dummy.m in Sources */,
-				AA5B42262E7B5C6EBC92E9C1CBB3F941 /* MUKScrollTrigger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +279,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3410F9337794D1FA6E08127375F7CCB1 /* Release */ = {
+		3131846F2DF870AF218013F42C84976B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6C408EAEB6FCAE1E3F8FDE710F3DF8A /* MUKScrollTrigger.xcconfig */;
+			baseConfigurationReference = 8BF88BE95A7577678BDB817209E8B5DB /* MUKScrollTrigger.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -282,9 +299,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		59D66436BB9D25E084113622098C39DD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -306,6 +322,30 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		7404BCDF360FA911E2082532D7B73B13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BF88BE95A7577678BDB817209E8B5DB /* MUKScrollTrigger.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MUKScrollTrigger/MUKScrollTrigger-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MUKScrollTrigger;
+				PRODUCT_NAME = MUKScrollTrigger;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		8B68D161A685D0E9906DF2B297857921 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -393,29 +433,6 @@
 			};
 			name = Release;
 		};
-		C4018C103DFA1B72D1AFF63A982A4C23 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6C408EAEB6FCAE1E3F8FDE710F3DF8A /* MUKScrollTrigger.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MUKScrollTrigger/MUKScrollTrigger-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MUKScrollTrigger;
-				PRODUCT_NAME = MUKScrollTrigger;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		F5D3D0BF744B9700EA072D8A99FA80C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,20 +496,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4283F6565816FFECF97F51823ADA98A7 /* Build configuration list for PBXNativeTarget "MUKScrollTrigger" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4018C103DFA1B72D1AFF63A982A4C23 /* Debug */,
-				3410F9337794D1FA6E08127375F7CCB1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B68D161A685D0E9906DF2B297857921 /* Debug */,
 				F5D3D0BF744B9700EA072D8A99FA80C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1E640A5DD34CF6C9C248E2F12EEC7C2 /* Build configuration list for PBXNativeTarget "MUKScrollTrigger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3131846F2DF870AF218013F42C84976B /* Debug */,
+				7404BCDF360FA911E2082532D7B73B13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
